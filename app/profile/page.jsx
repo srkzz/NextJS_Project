@@ -10,14 +10,14 @@ const MyProfile = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  const [myPosts, setMyPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);
       const data = await response.json();
 
-      setMyPosts(data);
+      setPosts(data);
     };
 
     if (session?.user.id) fetchPosts();
@@ -29,7 +29,7 @@ const MyProfile = () => {
 
   const handleDelete = async (post) => {
     const hasConfirmed = confirm(
-      "Tem a certeza que deseja apagar?"
+      "Are you sure you want to delete this prompt?"
     );
 
     if (hasConfirmed) {
@@ -38,9 +38,9 @@ const MyProfile = () => {
           method: "DELETE",
         });
 
-        const filteredPosts = myPosts.filter((item) => item._id !== post._id);
+        const filteredPosts = Posts.filter((item) => item._id !== post._id);
 
-        setMyPosts(filteredPosts);
+        setPosts(filteredPosts);
       } catch (error) {
         console.log(error);
       }
@@ -49,9 +49,9 @@ const MyProfile = () => {
 
   return (
     <Profile
-      name="Meu"
-      desc='Meu perfil!'
-      data={myPosts}
+      name='My'
+      desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
+      data={posts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}
     />
