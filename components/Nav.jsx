@@ -33,10 +33,10 @@ const Nav = () => {
 
       {/* DESKTOP NAVIGATION */}
       <div className='sm:flex hidden'>
-        <Link href="/contact" className='black_btn md:gap-5'>
+        <Link href="/contact" className='outline_btn md:gap-5'>
           Contactar
         </Link>
-        <Link href="/cv" className='black_btn md:gap-5'>
+        <Link href="/cv" className='outline_btn md:gap-5'>
           Curriculum
         </Link>
         {session?.user ? (
