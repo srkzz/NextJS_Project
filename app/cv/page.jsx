@@ -4,7 +4,7 @@ import Image from 'next/image';
 const CV = () => {
     return (
 
-        <div className='mt-10 w-full max-w-2x1 flex flex-col gap-7 glassmorphism'>
+        <div className='mt-10 mb-10 w-full max-w-2x1 flex flex-col gap-7 glassmorphism'>
             <div className='flex justify-center items-center'>
                 <header className="random_gradient text-center head_text">
                     <h1 className="font-bold">Ruben Silva</h1>

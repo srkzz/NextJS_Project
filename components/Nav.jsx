@@ -44,7 +44,12 @@ const Nav = () => {
             <Link href="/create-prompt" className='black_btn'>
               Criar Post
             </Link>
-            <button type='button' onClick={signOut} className="outline_btn">
+            <button 
+            type='button' 
+            onClick={() => {
+              signOut();
+              router.push('/');
+            }} className="outline_btn">
               Terminar Sessão
             </button>
 
@@ -83,8 +88,8 @@ const Nav = () => {
           <div className='flex'>
             <Image 
               src={session?.user.image}
-              width={50}
-              height={50}
+              width={35}
+              height={35}
               className="rounded-full"
               alt="profile"
               onClick={() => setToggleDropdown(!toggleDropdown)}
@@ -116,6 +121,7 @@ const Nav = () => {
                   onClick={() => {
                     setToggleDropdown(false);
                     signOut();
+                    router.push('/');
                   }}
                   className='mt-5 w-full black_btn'
                 >
