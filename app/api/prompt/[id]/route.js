@@ -29,8 +29,8 @@ export const PATCH = async (request , {params}) => {
 
         if(!existingPrompt) return new Response("Post não encontrado.", {status: 404})
 
-        existingPrompt.prompt= prompt;
-        existingPrompt.tag= tag;
+        existingPrompt.prompt = prompt;
+        existingPrompt.tag = tag;
 
         await existingPrompt.save();
 
