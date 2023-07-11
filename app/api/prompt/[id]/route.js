@@ -1,7 +1,6 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
-import { request } from "express";
-import { connect } from "mongoose";
+
 
 
 // GET PARA LER
