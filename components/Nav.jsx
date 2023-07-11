@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,19 +9,14 @@ const Nav = () => {
   const { data: session } = useSession();
 
   const [providers, setProviders] = useState(null);
-
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
-    const setUpProviders = async () => {
-      const response = await getProviders();
-
-
-      setProviders(response);
-    }
-
-    setUpProviders();
-  }, [])
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
+  }, []);
 
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
@@ -54,7 +49,8 @@ const Nav = () => {
             </button>
 
             <Link href="/profile">
-              <Image src={session?.user.image}
+              <Image 
+                src={session?.user.image}
                 width={37}
                 height={37}
                 className="rounded-full"
@@ -65,12 +61,13 @@ const Nav = () => {
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((provider) =>
-              (
+              Object.values(providers).map((provider) => (
                 <button
-                  type="button"
+                  type='button'
                   key={provider.name}
-                  onClick={() => signIn(provider.id)}
+                  onClick={() => {
+                    signIn(provider.id);
+                  }}
                   className='black_btn'
                 >
                   Iniciar Sessão
@@ -84,15 +81,16 @@ const Nav = () => {
       <div className='sm:hidden flex relative'>
         {session?.user ? (
           <div className='flex'>
-            <Image src={session?.user.image}
+            <Image 
+              src={session?.user.image}
               width={37}
               height={37}
               className="rouded-full"
               alt="profile"
-              onClick={() => setToggleDropdown((prev) => !prev)}
+              onClick={() => setToggleDropdown(!toggleDropdown)}
             />
             {toggleDropdown && (
-              <div className='dropdown'>
+              <div className='dropdown glassmorphism'>
                 <Link
                   href="/profile"
                   className='dropdown_link'
@@ -115,8 +113,11 @@ const Nav = () => {
                 </Link>
                 <button
                   type='button'
-                  onClick={signOut}
-                  className="mt-5 w-full black_btn"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                  className='mt-5 w-full black_btn'
                 >
                   Encerrar Sessão
                 </button>
@@ -134,7 +135,7 @@ const Nav = () => {
                   onClick={() => signIn(provider.id)}
                   className='black_btn'
                 >
-                  Sign In
+                  Iniciar Sessão
                 </button>
               ))}
           </>
@@ -145,4 +146,4 @@ const Nav = () => {
   )
 }
 
-export default Nav
+export default Nav;
