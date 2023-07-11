@@ -42,16 +42,14 @@ const CV = () => {
             </section>
 
             <section className="my-3 mx-4 glassmorphism">
-                <h3 className="text-xl font-semibold mb-4">Professional Experience</h3>
+                <h3 className="text-xl font-semibold mb-4">Programming Professional Experience</h3>
                 <article className="mb-6">
                     <h4 className="text-lg font-semibold">Junior Developer</h4>
                     <p>Develop2You</p>
                     <p>Porto, Portugal</p>
                     <p>March 2023 - April 2023 (2 months)</p>
                     <ul>
-                        <li>Developed a full-stack web project using Next.js, React, and MongoDB.</li>
-                        <li>Implemented dynamic data fetching and server-side rendering for improved performance.</li>
-                        <li>Collaborated with a team to ensure successful project delivery.</li>
+                        <li>Developed a full-stack web project using php, Laravel, mysql.</li>
                     </ul>
                 </article>
 
