@@ -44,17 +44,17 @@ const Nav = () => {
             <Link href="/create-prompt" className='black_btn'>
               Criar Post
             </Link>
-            <button 
-            type='button' 
-            onClick={() => {
-              signOut();
-              router.push('/');
-            }} className="outline_btn">
+            <button
+              type='button'
+              onClick={() => {
+                signOut();
+                router.push('/');
+              }} className="outline_btn">
               Terminar Sessão
             </button>
 
             <Link href="/profile">
-              <Image 
+              <Image
                 src={session?.user.image}
                 width={37}
                 height={37}
@@ -86,7 +86,7 @@ const Nav = () => {
       <div className='sm:hidden flex relative'>
         {session?.user ? (
           <div className='flex'>
-            <Image 
+            <Image
               src={session?.user.image}
               width={35}
               height={35}
@@ -109,13 +109,7 @@ const Nav = () => {
                 >
                   Criar Post
                 </Link>
-                <Link
-                  href="/contact"
-                  className='dropdown_link glassmorphism'
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  Contactar
-                </Link>
+
                 <button
                   type='button'
                   onClick={() => {
@@ -132,22 +126,27 @@ const Nav = () => {
           </div>
         ) : (
           <>
-            {providers &&
-              Object.values(providers).map((provider) =>
-              (
-                <button
-                  type="button"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className='black_btn'
-                >
-                  Iniciar Sessão
-                </button>
-              ))}
+            <ul>
+              <li><Link href="/contact" className='mt-2 outline_btn md:gap-5'>Contactar</Link></li>
+              <li><Link href="/cv" className='mt-2 outline_btn md:gap-5'>Curriculum</Link></li>
+
+              <li> {providers &&
+                Object.values(providers).map((provider) =>
+                (
+                  <button
+                    type="button"
+                    key={provider.name}
+                    onClick={() => signIn(provider.id)}
+                    className='mt-2 black_btn'
+                  >
+                    Iniciar Sessão
+                  </button>
+                ))}
+              </li>
+            </ul>
           </>
         )}
       </div>
-
     </nav>
   )
 }
