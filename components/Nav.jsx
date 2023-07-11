@@ -86,41 +86,47 @@ const Nav = () => {
       <div className='sm:hidden flex relative'>
         {session?.user ? (
           <div className='flex'>
+            <button
+              type='button'
+              onClick={() => {
+                setToggleDropdown(false);
+                signOut();
+                router.push('/');
+              }}
+              className='mr-5 black_btn'
+            >
+              Encerrar Sessão
+            </button>
             <Image
               src={session?.user.image}
-              width={35}
-              height={35}
+              width={37}
+              height={37}
               className="rounded-full"
               alt="profile"
               onClick={() => setToggleDropdown(!toggleDropdown)}
             />
             {toggleDropdown && (
               <div className='dropdown'>
-                <Link
-                  href="/profile"
-                  className='dropdown_link glassmorphism'
-                  onClick={() => setToggleDropdown(false)}>
-                  Meu Perfil
-                </Link>
-                <Link
-                  href="/create-prompt"
-                  className='dropdown_link glassmorphism'
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  Criar Post
-                </Link>
-
-                <button
-                  type='button'
-                  onClick={() => {
-                    setToggleDropdown(false);
-                    signOut();
-                    router.push('/');
-                  }}
-                  className='mt-5 w-full black_btn'
-                >
-                  Encerrar Sessão
-                </button>
+                <ul>
+                  <li><Link
+                    href="/profile"
+                    className='mt-2 outline_btn glassmorphism md:gap-5'
+                    onClick={() => setToggleDropdown(false)}>
+                    Meu Perfil
+                  </Link>
+                  </li> 
+                  <li><Link href="/contact" className='mt-2 outline_btn glassmorphism md:gap-5'>Contactar</Link></li>
+                  <li><Link href="/cv" className='mt-2 outline_btn glassmorphism md:gap-5'>Curriculum</Link></li>
+                  <li>
+                    <Link
+                      href="/create-prompt"
+                      className='mt-2 outline_btn glassmorphism md:gap-5'
+                      onClick={() => setToggleDropdown(false)}
+                    >
+                      Criar Post
+                    </Link>
+                  </li>
+                </ul>
               </div>
             )}
           </div>

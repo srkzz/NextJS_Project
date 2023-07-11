@@ -9,7 +9,7 @@ const Contact = ({ text, email, phone, message }) => {
     const router = useRouter();
     
     return (
-        <div className="max-w-md mx-auto my-10 bg-white  rounded-md shadow-sm w-full max-w-2x1 flex flex-col glassmorphism">
+        <div className="static max-w-md mx-auto my-10 bg-white  rounded-md shadow-sm w-full max-w-2x1 flex flex-col glassmorphism">
             <div className="text-center">
                 <h1 className=" text-3xl font-semibold random_gradient">
                     Contact Me
