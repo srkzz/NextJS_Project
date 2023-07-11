@@ -49,7 +49,7 @@ const MyProfile = () => {
 
   return (
     <Profile
-      name="name"
+      name="Meu"
       desc='Meu perfil!'
       data={myPosts}
       handleEdit={handleEdit}

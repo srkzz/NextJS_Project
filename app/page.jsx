@@ -11,9 +11,9 @@ const Home = () => {
                 <Link href="/cv"><span className="junior_gradient text-center">Junior Developer</span></Link>
             </h1>
 
-        <Feed/>
+            <Feed />
         </section>
     )
 }
 
-export default Home
+export default Home;
