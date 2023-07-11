@@ -29,7 +29,7 @@ const MyProfile = () => {
 
   const handleDelete = async (post) => {
     const hasConfirmed = confirm(
-      "Tem a certeza que quer apagar?"
+      "Are you sure you want to delete this prompt?"
     );
 
     if (hasConfirmed) {
@@ -38,7 +38,7 @@ const MyProfile = () => {
           method: "DELETE",
         });
 
-        const filteredPosts = Posts.filter((item) => item._id !== post._id);
+        const filteredPosts = posts.filter((item) => item._id !== post._id);
 
         setPosts(filteredPosts);
       } catch (error) {
@@ -49,7 +49,7 @@ const MyProfile = () => {
 
   return (
     <Profile
-      name='Meu'
+      name='Meu Perfil'
       desc='Aqui estão os teus posts! Inspira alguém!'
       data={posts}
       handleEdit={handleEdit}

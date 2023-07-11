@@ -83,30 +83,30 @@ const Nav = () => {
           <div className='flex'>
             <Image 
               src={session?.user.image}
-              width={37}
-              height={37}
-              className="rouded-full"
+              width={50}
+              height={50}
+              className="rounded-full"
               alt="profile"
               onClick={() => setToggleDropdown(!toggleDropdown)}
             />
             {toggleDropdown && (
-              <div className='dropdown glassmorphism'>
+              <div className='dropdown'>
                 <Link
                   href="/profile"
-                  className='dropdown_link'
+                  className='dropdown_link glassmorphism'
                   onClick={() => setToggleDropdown(false)}>
                   Meu Perfil
                 </Link>
                 <Link
                   href="/create-prompt"
-                  className='dropdown_link'
+                  className='dropdown_link glassmorphism'
                   onClick={() => setToggleDropdown(false)}
                 >
                   Criar Post
                 </Link>
                 <Link
                   href="/contact"
-                  className='dropdown_link'
+                  className='dropdown_link glassmorphism'
                   onClick={() => setToggleDropdown(false)}
                 >
                   Contactar

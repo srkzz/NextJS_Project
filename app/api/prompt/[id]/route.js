@@ -42,7 +42,6 @@ export const PATCH = async (request , {params}) => {
 
 };
 
-
 // DELETE 
 export const DELETE = async(request, { params }) => {
     try {
@@ -51,6 +50,7 @@ export const DELETE = async(request, { params }) => {
         await Prompt.findByIdAndRemove(params.id);
 
         return new Response("Post apagado com sucesso!", { status: 200 })
+       
     } catch(error) {
         return new Response("Falha ao apagar o post!", { status: 500})
     }
