@@ -9,7 +9,7 @@ const Home = () => {
                 <br className="max-md:hidden" />
                 <Link href="/cv"><span className="junior_gradient text-center">Junior Developer</span></Link>
             </h1>
-            <Feed />
+        <Feed />
         </section>
     )
 }
