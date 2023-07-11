@@ -1,7 +1,6 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
 
-
 export const GET = async (request) => {
     try {
         await connectToDB();
@@ -9,7 +8,7 @@ export const GET = async (request) => {
         const prompts = await Prompt.find({}).populate('creator');
 
         return new Response(JSON.stringify(prompts), { status: 200})
-    } catch (error){
+    } catch (error) {
         return new Response("Falha ao carregar posts", { status: 500 })
     }
 }
